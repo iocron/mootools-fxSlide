@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>fxSlide</title>
+		<link rel="stylesheet" href="../css/fxSlide.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="../js/mootools.js"></script>
+		<script type="text/javascript" src="../js/fxSlide.js"></script>
+		<script>
+            window.addEvent("domready",function(){
+                new fxSlide({ 
+                    elements:$$(".fxSlide"),
+                    imageContainer:"div.fxImageContainer",
+                    imageContainerSingle:"div.fxImageContainerSingle"
+                });
+            });
+		</script>
+	</head>
+	<body style="padding-left:100px;">
+		<div class="fxSlide">
+			<div class="fxContent">
+				<div class="fxImageContainer">
+                    <div class="fxImageContainerSingle"><a href="#"><img src="../img/images/test1.gif" alt="" /></a></div>
+                    <div class="fxImageContainerSingle"><a href="#"><img src="../img/images/test2.gif" alt="" /></a></div>
+                    <div class="fxImageContainerSingle"><a href="#"><img src="../img/images/test3.gif" alt="" /></a></div>
+                    <div class="fxImageContainerSingle"><a href="#"><img src="../img/images/test4.gif" alt="" /></a></div>
+                    <div class="fxImageContainerSingle"><a href="#"><img src="../img/images/test5.gif" alt="" /></a></div>
+                    <div class="fxImageContainerSingle"><a href="#"><img src="../img/images/test6.gif" alt="" /></a></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

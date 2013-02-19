@@ -1,0 +1,9 @@
+History:
+ v0.3.4: New Slide Effect (not finished): Choose between "slide" (standard) or "alpha" (opacity effect)
+ v0.3.3: Several Bugfixes (imageDifferenceWidth Bug, etc..) and some smaller Improvements
+ v0.3.2: Removed "buttonsPositionAuto" and added a CSS positioning
+ v0.3.1: Added "slideAutoStopOnHover" - Stop Auto Slide, when a Event-Element is hovered
+ v0.3.0: Added Tabs, Slide Direction and different Slide Auto Options, etc.
+ v0.2.1: Reconfiguration of different Variables
+ v0.2.0: Added Autoslide Function
+ v0.1.0: First Basic Version

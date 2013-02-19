@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>fxSlide</title>
+		<link rel="stylesheet" href="../css/fxSlide.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="../js/mootools.js"></script>
+		<script type="text/javascript" src="../js/fxSlide.js"></script>
+		<script>
+            window.addEvent("domready",function(){
+                new fxSlide({ 
+                    elements:$$(".fxSlide"),
+                    slideCallback:function(slideObject,slideNum,slideDuration,slideEffect,slideMode){
+                       /* DO SOMETHING HERE, as Example: */
+                       new Element("pre",{ 
+                           "html":"<strong>slideCallback:</strong>"+
+                           "<br/>slideObject: "+slideObject+
+                           "<br/>slideNum: "+slideNum+
+                           "<br/>slideDuration: "+slideDuration+
+                           "<br/>slideEffect: "+slideEffect+
+                           "<br/>slideMode: "+slideMode
+                       }).inject(document.getElement("body"));
+                    },
+                    initCallback:function(slideObject){
+                       /* DO SOMETHING HERE, as Example: */
+                       new Element("pre",{ "html":"<strong>initCallback:</strong><br/>slideObject: "+slideObject }).inject(document.getElement("body"));
+                    }
+                });
+            });
+		</script>
+	</head>
+	<body style="padding-left:100px;">
+		<div class="fxSlide">
+			<div class="fxContent">
+				<ul>
+                    <li><a href="#"><img src="../img/images/test1.gif" alt="" /></a></li>
+                    <li><a href="#"><img src="../img/images/test2.gif" alt="" /></a></li>
+                    <li><a href="#"><img src="../img/images/test3.gif" alt="" /></a></li>
+                    <li><a href="#"><img src="../img/images/test4.gif" alt="" /></a></li>
+                    <li><a href="#"><img src="../img/images/test5.gif" alt="" /></a></li>
+                    <li><a href="#"><img src="../img/images/test6.gif" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

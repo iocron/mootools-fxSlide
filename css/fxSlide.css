@@ -1,0 +1,39 @@
+/* CONTENT */
+.fxSlide .fxContent { clear:left; position:relative; left:0px; top:0px; overflow:hidden; }
+.fxSlide .fxContent ul,.fxSlide .fxContent div.fxImageContainer { display:block; position:relative; left:0px; list-style-type:none; padding:0; margin:0; width:999em; }
+.fxSlide .fxContent li,.fxSlide .fxContent div.fxImageContainerSingle { width:125px; height:125px; margin-right:10px; display:block; float:left; overflow:hidden; }
+.fxSlide .fxContent img,.fxSlide .fxContent a { border-width:0; }
+
+/* TABS */
+.fxSlide .fxTabs { height:20px; }
+.fxSlide .fxTabs ul { display:block; list-style-type:none; padding:0; margin:0; }
+.fxSlide .fxTabs li { float:left; cursor:pointer; margin-right:5px; }
+.fxSlide .fxTabs li.active {  }
+.fxSlide .fxTabs li a { color:#000; text-decoration:none; }
+.fxSlide .fxTabs li.active a { color:#ff0000; }
+
+/* BUTTONS */
+.fxSlide .fxButtons { position:absolute; z-index:0; }
+.fxSlide .fxButtons a { width:24px; height:24px; opacity:0.4; filter:alpha(opacity=40); position:absolute; font-size:0; display:inline-block; line-height:999px; overflow:hidden; vertical-align:middle; cursor:pointer; }
+.fxSlide .fxButtons a:hover { opacity:1.0; filter:alpha(opacity=100); }
+.fxSlide .fxButtons .fxPrev { background:url("../img/controller/arrow-left.gif") no-repeat left top transparent; }
+.fxSlide .fxButtons .fxNext { background:url("../img/controller/arrow-right.gif") no-repeat left top transparent; }
+
+.fxSlide.horizontal .fxButtons .fxButtonsBtn { top:50%; margin-top:-12px; }
+.fxSlide.horizontal .fxButtons .fxPrev { left:-30px; }
+.fxSlide.horizontal .fxButtons .fxNext { right:-30px; }
+
+.fxSlide.vertical .fxContent li { float:none; }
+.fxSlide.vertical .fxButtons .fxButtonsBtn { left:50%; margin-left:-12px; }
+.fxSlide.vertical .fxButtons .fxPrev { top:-30px; background-image:url("../img/controller/arrow-top.gif"); }
+.fxSlide.vertical .fxButtons .fxNext { bottom:-30px; background-image:url("../img/controller/arrow-bottom.gif"); }
+
+/* SLIDE EFFECT - SLIDE */
+.fxSlide.slide {  }
+
+/* SLIDE EFFECT - ALPHA */
+.fxSlide.alpha {  }
+.fxSlide.alpha .fxContent { overflow:inherit; }
+.fxSlide.alpha .fxContent ul {  }
+.fxSlide.alpha .fxContent ul li { position:absolute; }
+
