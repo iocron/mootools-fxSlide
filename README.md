@@ -40,22 +40,29 @@ How to use
   * img/controller/
   * css/fxSlide.css
 
+
 * See the "demo/demo.html" for examples, but basically you need to implement the fallowing code into your html file / head:
+```
 	<link rel="stylesheet" href="css/fxSlide.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="js/mootools.js"></script>
 	<script type="text/javascript" src="js/fxSlide.js"></script>
+```
 
 * Implement the fallowing code into your Javascript File (use domready):
+```javascript
 	window.addEvent("domready",function(){
 		new fxSlide({ 
 			elements:$$(".fxSlide")
 		});
 	});
+```
 
 * If you have a different directory structure, then don't forget to adjust the background-images in your fxSlide.css file
 
 * If you want to change the width / height of your slide elements or the spacing between elements, then simply edit your fxSlide.css file and the fallowing line:
+```
 	.fxSlide .fxContent li,.fxSlide .fxContent div.fxImageContainerSingle { width:125px; height:125px; margin-right:10px; }
+```
 
 ### Configurable Options
 
