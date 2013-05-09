@@ -3,7 +3,7 @@ Script: fxSlide.js
 	fxSlide (Slideshow) - A very flexible, but simple mootools javascript plugin to slide and animate images or multiple images at once.
 	
 Version:
-	0.3.10
+	0.3.11
 
 License:
 	MIT License (http://www.opensource.org/licenses/mit-license.php)
@@ -221,7 +221,7 @@ var fxSlide = new Class({
 	
 	effectTabs:function(num,slide){
 		if(this.options.tabs && slide['tabs']){
-			var tabCurrent = Math.floor(slide['navCurrent']/this.options.slideSize);
+			var tabCurrent = Math.ceil(slide['navCurrent']/this.options.slideSize);
 			var tabs = slide['tabs'].getElements("ul li");
 			
 			tabs.removeClass("active");
