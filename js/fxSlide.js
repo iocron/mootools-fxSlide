@@ -131,10 +131,11 @@ var fxSlide = new Class({
 			
 			tmpTabs.each(function(eli,cnt){
 				eli.addEvents({
-					"click":function(){
+					"click":function(e){
+						e.stop();
 						self.showSlide(self.varNavCurrent("strict",cnt));
 					},
-					"focus":function(){
+					"focus":function(e){
 						this.blur();
 					}
 				})
