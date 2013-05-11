@@ -3,10 +3,13 @@ Script: fxSlide.js
 	fxSlide (Slideshow) - A very flexible, but simple mootools javascript plugin to slide and animate images or multiple images at once.
 	
 Version:
-	0.3.11
+	0.3.12
 
 License:
 	MIT License (http://www.opensource.org/licenses/mit-license.php)
+	
+Github:
+	https://github.com/iocron/mootools-fxSlide
 
 Copyright:
 	Copyright (c) 2009-2013 [ioCron](http://www.iocron.com) and [Pixelmount]http://www.pixelmount.com
@@ -26,10 +29,10 @@ var fxSlide = new Class({
 		tabs:true,							// Do you need a Tab-Navigation for your Gallery?
 		buttons:true,						// Do you need a Button-Navigation for your Gallery?
 		imageContainer:"ul",				// Your overall Image Container, e.g. "ul" selects ".fxSlide ul"
-		imageContainerSingle:"li",			// Your Image Containers, e.g. "li" selects ".fxSlide ul li"
+		imageElement:"li",					// Your Image Containers, e.g. "li" selects ".fxSlide ul li"
 		slideEffect:"slide",				// Choose between different Slide Effects ("slide","alpha" or your own one)
 											// If u are using your own effect, then create just a new Method, e.g.:
-											// effectExample:function(slideObject,slideNum,slideDuration,slideEffect,slideMode){ ... }
+											// effectExample:function(slideObject,slideElement,slideNum,slideDuration,slideEffect,slideMode){ ... }
 		slideDuration:850,					// The duration of the slide effect
 		slideTransition:false,				// The transition of your slide effect
 		slideDirection:"x",					// Choose between a horizontal (y) or a vertical slide (x)
@@ -42,7 +45,7 @@ var fxSlide = new Class({
 		slideAutoOnHoverIn:"stop",			// Stop the AutoSlide Effect when u hover over a Navigation Element
 											// (this includes the tabs, buttons and the slide elements itself)
 		slideAutoOnHoverOut:"start",		// Continues the AutoSlide Effect when u hover outside of a Navigation Element
-		slideCallback:function(){},			// Use your own Callback when a slide starts, e.g. function(slideObject,slideNum,slideDuration,slideEffect,slideMode){ ... }
+		slideCallback:function(){},			// Use your own Callback when a slide starts, e.g. function(slideObject,slideElement,slideNum,slideDuration,slideEffect,slideMode){ ... }
 		initCallback:function(){}			// Use your own Callback on the Initialisation of the Class, e.g. function(slideObject){ ... }
 	},
 	
@@ -69,7 +72,7 @@ var fxSlide = new Class({
 		slide['slideMode'] = "strict";
 		slide['content'] = slide.getElement(".fxContent");
 		slide['ul'] = slide['content'].getElement(this.options.imageContainer);
-		slide['li'] = slide['ul'].getElements(this.options.imageContainerSingle);
+		slide['li'] = slide['ul'].getElements(this.options.imageElement);
 		slide['liLength'] = slide['li'].length;
 		slide['liFirstElement'] = slide['li'][0].addClass("first");
 		slide['liLastElement'] = slide['li'][slide['liLength']-1].addClass("last");
@@ -147,7 +150,7 @@ var fxSlide = new Class({
 		this.autoSlideStart();
 		
 		// Init Callback
-		this.options.initCallback(slide);
+		this.options.initCallback(self);
 		
 		// SET RANDOM / CURRENT PICTURE
 		this.showSlide(slide['navCurrent'],0);
@@ -204,6 +207,7 @@ var fxSlide = new Class({
 	},
 	
 	showSlide:function(num,duration){
+		var self = this;
 		var slide = this.slide;
 		var dur = (duration || duration == 0) ? duration : this.options.slideDuration;
 		var ef = this.options.slideEffect;
@@ -212,11 +216,11 @@ var fxSlide = new Class({
 		switch(ef){
 			case "slide": this.effectSlide(num,dur,slide); break;
 			case "alpha": this.effectAlpha(num,dur,slide); break;
-			default: this[ef](slide,num,dur,ef,slide['slideMode']); break;
+			default: this[ef](self,slide,num,dur,ef,slide['slideMode']); break;
 		}
 		
 		this.effectTabs(num,slide);
-		this.options.slideCallback(slide,num,dur,ef,slide['slideMode']);
+		this.options.slideCallback(self,slide,num,dur,ef,slide['slideMode']);
 	},
 	
 	effectTabs:function(num,slide){
@@ -240,7 +244,7 @@ var fxSlide = new Class({
 	
 	varNavCurrent:function(mode,num){
 		var slide = this.slide;
-		var navCurrent = navCurrent || navCurrent == 0 ? num : slide['navCurrent'];
+		var navCurrent = navCurrent || navCurrent == 0 ? num : slide['navCurrent'];
 		var slideSize = this.options.slideSize;
 		var slideStep = this.options.slideStep;
 		

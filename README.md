@@ -61,7 +61,7 @@ How to use
 
 * If you want to change the width / height of your slide elements or the spacing between elements, then simply edit your fxSlide.css file and the fallowing line:
 ```
-	.fxSlide .fxContent li,.fxSlide .fxContent div.fxImageContainerSingle { width:125px; height:125px; margin-right:10px; }
+	.fxSlide .fxContent li,.fxSlide .fxContent div.fxImage { width:125px; height:125px; margin-right:10px; }
 ```
 
 ### Configurable Options
@@ -72,7 +72,7 @@ Options
 * tabs:true,					// Do you need a Tab-Navigation for your Gallery?
 * buttons:true,					// Do you need a Button-Navigation for your Gallery?
 * imageContainer:"ul",				// Your overall Image Container, e.g. "ul" selects ".fxSlide ul"
-* imageContainerSingle:"li",			// Your Image Containers, e.g. "li" selects ".fxSlide ul li"
+* imageElement:"li",			// Your Image Containers, e.g. "li" selects ".fxSlide ul li"
 * slideEffect:"slide",				// Choose between different Slide Effects ("slide","alpha" or your own one)
 * slideDuration:850,				// The duration of the slide effect
 * slideTransition:false,			// The transition of your slide effect
@@ -88,6 +88,6 @@ Options
 
 Events
 
-* slideCallback:function(){},			// Use your own Callback when a slide starts, e.g. function(slideObject,slideNum,slideDuration,slideEffect,slideMode){ ... }
+* slideCallback:function(){},			// Use your own Callback when a slide starts, e.g. function(slideObject,slideElement,slideNum,slideDuration,slideEffect,slideMode){ ... }
 * initCallback:function(){}			// Use your own Callback on the Initialisation of the Class, e.g. function(slideObject){ ... }
 
