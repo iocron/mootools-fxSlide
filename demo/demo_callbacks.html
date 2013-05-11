@@ -10,11 +10,12 @@
             window.addEvent("domready",function(){
                 new fxSlide({ 
                     elements:$$(".fxSlide"),
-                    slideCallback:function(slideObject,slideNum,slideDuration,slideEffect,slideMode){
+                    slideCallback:function(slideObject,slideElement,slideNum,slideDuration,slideEffect,slideMode){
                        /* DO SOMETHING HERE, as Example: */
                        new Element("pre",{ 
                            "html":"<strong>slideCallback:</strong>"+
                            "<br/>slideObject: "+slideObject+
+                           "<br/>slideElement: "+slideElement+
                            "<br/>slideNum: "+slideNum+
                            "<br/>slideDuration: "+slideDuration+
                            "<br/>slideEffect: "+slideEffect+

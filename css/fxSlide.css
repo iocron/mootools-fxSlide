@@ -1,7 +1,7 @@
 /* CONTENT */
 .fxSlide .fxContent { clear:left; position:relative; left:0px; top:0px; overflow:hidden; }
 .fxSlide .fxContent ul,.fxSlide .fxContent div.fxImageContainer { display:block; position:relative; left:0px; list-style-type:none; padding:0; margin:0; width:999em; }
-.fxSlide .fxContent li,.fxSlide .fxContent div.fxImageContainerSingle { width:125px; height:125px; margin-right:10px; display:block; float:left; overflow:hidden; }
+.fxSlide .fxContent li,.fxSlide .fxContent div.fxImage { width:125px; height:125px; margin-right:10px; display:block; float:left; overflow:hidden; }
 .fxSlide .fxContent img,.fxSlide .fxContent a { border-width:0; }
 
 /* TABS */
