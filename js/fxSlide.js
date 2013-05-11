@@ -3,7 +3,7 @@ Script: fxSlide.js
 	fxSlide (Slideshow) - A very flexible, but simple mootools javascript plugin to slide and animate images or multiple images at once.
 	
 Version:
-	0.3.13
+	0.3.14
 
 License:
 	MIT License (http://www.opensource.org/licenses/mit-license.php)
