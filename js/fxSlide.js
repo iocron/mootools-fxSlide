@@ -3,7 +3,7 @@ Script: fxSlide.js
 	fxSlide (Slideshow) - A very flexible, but simple mootools javascript plugin to slide and animate images or multiple images at once.
 	
 Version:
-	0.3.12
+	0.3.13
 
 License:
 	MIT License (http://www.opensource.org/licenses/mit-license.php)
@@ -88,6 +88,7 @@ var fxSlide = new Class({
 		slide['navCurrent'] = (this.options.slideStartRandom) ? 0 + parseInt(Math.random() * (slide['liLength']-this.options.slideSize+1)) : this.options.slideStart;
 		slide['fx'] = new Fx.Tween(slide['ul'],{ duration:this.options.slideDuration, link:"chain", transition:this.options.slideTransition });
 		slide['tabs'] = (slide.getElement(".fxTabs") != undefined) ? slide.getElement(".fxTabs") : new Element("div",{ "class":"fxTabs", "html":"<ul></ul>" });
+		slide['slideNeeded'] = slide['liLength'] > this.options.slideSize ? true : false;
 		
 		// DEFAULT INIT for the Different Effects
 		switch(this.options.slideEffect){
@@ -145,15 +146,15 @@ var fxSlide = new Class({
 			});
 		}
 		
+		// SET RANDOM / CURRENT PICTURE
+		this.showSlide(slide['navCurrent'],0);
+		
 		// AUTO-SLIDE
 		this.autoSlideEvents();
 		this.autoSlideStart();
 		
 		// Init Callback
 		this.options.initCallback(self);
-		
-		// SET RANDOM / CURRENT PICTURE
-		this.showSlide(slide['navCurrent'],0);
 	},
 	
 	autoSlideEvents:function(){
@@ -211,16 +212,19 @@ var fxSlide = new Class({
 		var slide = this.slide;
 		var dur = (duration || duration == 0) ? duration : this.options.slideDuration;
 		var ef = this.options.slideEffect;
-		slide['navCurrent'] = num;
 		
-		switch(ef){
-			case "slide": this.effectSlide(num,dur,slide); break;
-			case "alpha": this.effectAlpha(num,dur,slide); break;
-			default: this[ef](self,slide,num,dur,ef,slide['slideMode']); break;
+		if(slide['slideNeeded']){
+			slide['navCurrent'] = num;
+			
+			switch(ef){
+				case "slide": this.effectSlide(num,dur,slide); break;
+				case "alpha": this.effectAlpha(num,dur,slide); break;
+				default: this[ef](self,slide,num,dur,ef,slide['slideMode']); break;
+			}
+			
+			this.effectTabs(num,slide);
+			this.options.slideCallback(self,slide,num,dur,ef,slide['slideMode']);
 		}
-		
-		this.effectTabs(num,slide);
-		this.options.slideCallback(self,slide,num,dur,ef,slide['slideMode']);
 	},
 	
 	effectTabs:function(num,slide){
